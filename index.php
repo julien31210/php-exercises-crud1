@@ -25,6 +25,11 @@
 			echo $data['firstName']."<br/>";
 		}
 
+		echo "<br/><br/>"."Exo4: "."<br/>";
+		$result4 = mysqli_query($connect, 'SELECT * FROM clients WHERE card != 0');
+		While($data = mysqli_fetch_assoc($result4)){
+			echo $data['firstName']," ".$data['cardNumber']."<br/>";
+		}
 	 ?>
 		<!--  
 
