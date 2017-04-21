@@ -22,13 +22,19 @@
 		 echo "<br/><br/>"."EXO 3: "."<br/>";
 		$result3 = mysqli_query($connect, 'SELECT * FROM clients LIMIT 20');
 		While($data = mysqli_fetch_assoc($result3)){
-			echo $data['firstName']."<br/>";
+			echo $data['lastName'], " ".$data['firstName']."<br/>";
 		}
 
 		echo "<br/><br/>"."Exo4: "."<br/>";
 		$result4 = mysqli_query($connect, 'SELECT * FROM clients WHERE card != 0');
 		While($data = mysqli_fetch_assoc($result4)){
-			echo $data['firstName']," ".$data['cardNumber']."<br/>";
+			echo $data['lastName'], " ".$data['firstName'], " ".$data['cardNumber']."<br/>";
+		}
+
+		echo "<br/><br/>"."Exo5: "."<br/>";
+		$result5 = mysqli_query($connect, 'SELECT lastName, firstName FROM clients WHERE lastName LIKE "M%"');
+		While($data = mysqli_fetch_assoc($result5)){
+			echo $data['lastName']," ".$data['firstName']."<br/>";
 		}
 	 ?>
 		<!--  
