@@ -42,6 +42,24 @@
 	While($data = mysqli_fetch_assoc($result6)){
 		echo $data['title']," par ".$data['performer'], " le ".$data['date'], " à ".$data['startTime']."<br/>";
 	}
+
+	echo "<br/><br/>"."Exo7 "."<br/>";
+	$result7 = mysqli_query($connect, 'SELECT * FROM clients LEFT OUTER JOIN cards ON clients.cardNumber=cards.cardNumber');
+	While($data = mysqli_fetch_assoc($result7)){
+		echo "Nom : ".$data['lastName'], "<br/>"."Prénom : ".$data['firstName'], "<br/>"."Date de naissance : ".$data['birthDate'], "<br/>"."Numéro de carte : ".$data['cardNumber']."<br/>"."Carte de fidélité : "; 
+	if ($data['cardTypesId']!=1) {
+		echo "Non";
+	}
+	else{
+		echo "Oui";
+	}
+	echo"<br/><br/>";
+	}
+// 	Nom : *Nom de famille du client*
+// Prénom : *Prénom du client*
+// Date de naissance : *Date de naissance du client*
+// Carte de fidélité : *Oui (Si le client en possède une) ou Non (s'il n'en possède pas)*
+// Numéro de carte : *Numéro de la carte fidélité du client s'il en possède une.*
 	?>
 </body>
 </html>
