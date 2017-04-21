@@ -32,7 +32,7 @@
 		}
 
 		echo "<br/><br/>"."Exo5: "."<br/>";
-		$result5 = mysqli_query($connect, 'SELECT lastName, firstName FROM clients WHERE lastName LIKE "M%"');
+		$result5 = mysqli_query($connect, 'SELECT lastName, firstName FROM clients WHERE lastName  LIKE "M%" ORDER BY lastName ASC');
 		While($data = mysqli_fetch_assoc($result5)){
 			echo $data['lastName']," ".$data['firstName']."<br/>";
 		}
