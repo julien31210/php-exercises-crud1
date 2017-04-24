@@ -52,16 +52,16 @@
 
 	//EXO 7
 	echo "<br/><br/>"."Exo7 "."<br/>";
-	$result7 = mysqli_query($connect, 'SELECT * FROM clients LEFT OUTER JOIN cards ON clients.cardNumber=cards.cardNumber');
+	$result7 = mysqli_query($connect, 'SELECT * FROM clients LEFT OUTER JOIN cards ON clients.cardNumber=cards.cardNumber ORDER BY lastName ASC');
 	While($data = mysqli_fetch_assoc($result7)){
 		echo "Nom : ".$data['lastName'], "<br/>"."Prénom : ".$data['firstName'], "<br/>"."Date de naissance : ".$data['birthDate'], "<br/>"."Numéro de carte : ".$data['cardNumber']."<br/>"."Carte de fidélité : "; 
-	if ($data['cardTypesId']!=1) {
-		echo "Non";
-	}
-	else{
-		echo "Oui";
-	}
-	echo"<br/><br/>";
+		if ($data['cardTypesId']!=1) {
+			echo "Non";
+		}
+		else{
+			echo "Oui";
+		}
+		echo"<br/><br/>";
 	}
 	?>
 </body>
